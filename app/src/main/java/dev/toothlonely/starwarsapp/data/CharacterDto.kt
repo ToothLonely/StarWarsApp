@@ -1,9 +1,13 @@
-package dev.toothlonely.starwarsapp.domain
+package dev.toothlonely.starwarsapp.data
 
-import dev.toothlonely.starwarsapp.data.CharacterDto
+import dev.toothlonely.starwarsapp.domain.Character
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
-data class Character(
+@Serializable
+data class CharacterDto(
     val name: String,
+    @SerialName("birth_year")
     val birthYear: String,
     val gender: String,
     val height: String,
@@ -11,7 +15,7 @@ data class Character(
     val species: String,
 )
 
-fun Character.toDto() = CharacterDto(
+fun CharacterDto.toDomain() = Character(
     name = this.name,
     birthYear = this.birthYear,
     gender = this.gender,

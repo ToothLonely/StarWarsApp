@@ -1,7 +1,7 @@
 package dev.toothlonely.starwarsapp.domain
 
 interface CharactersRepository {
-    suspend fun getAllCharacters()
+    suspend fun getAllCharacters(): List<Character>
 
-    suspend fun searchCharacter(character: String)
+    suspend fun search(character: String): Character
 }
