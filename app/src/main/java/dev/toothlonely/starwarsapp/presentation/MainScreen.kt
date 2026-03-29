@@ -20,7 +20,7 @@ fun MainScreen(modifier: Modifier) {
 }
 
 @Composable
-@Preview
+@Preview(showBackground = true)
 private fun MainScreenPreview() {
     MainScreen(Modifier)
 }

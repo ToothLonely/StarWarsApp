@@ -40,7 +40,7 @@ fun SearchString() {
 }
 
 @Composable
-@Preview
+@Preview(showBackground = true)
 private fun SearchStringPreview() {
     SearchString()
 }
