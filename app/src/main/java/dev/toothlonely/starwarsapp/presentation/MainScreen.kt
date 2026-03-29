@@ -1,30 +1,37 @@
 package dev.toothlonely.starwarsapp.presentation
 
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
-import dev.toothlonely.starwarsapp.data.STUB
+import dev.toothlonely.starwarsapp.presentation.navigation.Tab
+import dev.toothlonely.starwarsapp.presentation.navigation.TabsContent
+import dev.toothlonely.starwarsapp.presentation.navigation.TabsNavigation
 
 @Composable
-fun MainScreen(modifier: Modifier) {
+fun MainScreen(modifier: Modifier = Modifier) {
     Column(
-        verticalArrangement = Arrangement.spacedBy(10.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = modifier
     ) {
-        SearchString()
+        val tabs = listOf(
+            Tab.CharactersList,
+            Tab.PlanetsList,
+            Tab.FilmsList,
+            Tab.SpeciesList
+        )
+        val pagerState = rememberPagerState(pageCount = { tabs.size })
 
-        val listOfCharacters = STUB.getCharacters()
-        CharactersListScreen(listOfCharacters)
+        SearchString()
+        TabsNavigation(pager = pagerState, tabs = tabs)
+        TabsContent(pagerState = pagerState, tabs = tabs)
     }
 }
 
 @Composable
 @Preview(showBackground = true)
 private fun MainScreenPreview() {
-    MainScreen(Modifier)
+    MainScreen()
 }
