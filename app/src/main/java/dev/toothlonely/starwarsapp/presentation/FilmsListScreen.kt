@@ -36,7 +36,7 @@ fun FilmsListScreen(listOfFilms: List<Film>) {
 
 @Composable
 @Preview(showBackground = true)
-private fun Preview(){
+private fun Preview() {
     val listOfFilms = STUB.getFilms()
 
     FilmsListScreen(listOfFilms)
