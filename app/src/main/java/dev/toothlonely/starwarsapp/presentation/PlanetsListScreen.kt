@@ -10,10 +10,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import dev.toothlonely.starwarsapp.data.STUB
-import dev.toothlonely.starwarsapp.domain.Planet
 
 @Composable
-fun PlanetsListScreen(listOfPlanets: List<Planet>) {
+fun PlanetsListScreen() {
+
+    val listOfPlanets = STUB.getPlanets()
+
     LazyColumn {
         itemsIndexed(listOfPlanets) { index, item ->
             with(item) {
@@ -37,7 +39,5 @@ fun PlanetsListScreen(listOfPlanets: List<Planet>) {
 @Composable
 @Preview(showBackground = true)
 private fun Preview() {
-    val listOfPlanets = STUB.getPlanets()
-
-    PlanetsListScreen(listOfPlanets)
+    PlanetsListScreen()
 }

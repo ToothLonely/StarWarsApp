@@ -10,10 +10,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import dev.toothlonely.starwarsapp.data.STUB
-import dev.toothlonely.starwarsapp.domain.Film
 
 @Composable
-fun FilmsListScreen(listOfFilms: List<Film>) {
+fun FilmsListScreen() {
+
+    val listOfFilms = STUB.getFilms()
+
     LazyColumn {
         itemsIndexed(listOfFilms) { index, item ->
             with(item) {
@@ -37,7 +39,5 @@ fun FilmsListScreen(listOfFilms: List<Film>) {
 @Composable
 @Preview(showBackground = true)
 private fun Preview() {
-    val listOfFilms = STUB.getFilms()
-
-    FilmsListScreen(listOfFilms)
+    FilmsListScreen()
 }
