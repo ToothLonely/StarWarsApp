@@ -12,7 +12,7 @@ import retrofit2.converter.kotlinx.serialization.asConverterFactory
 class FilmRepositoryImpl : FilmRepository {
 
     companion object {
-        const val BASE_URL = "https://swapi.dev/api"
+        const val BASE_URL = "https://swapi.dev/api/"
     }
 
     private val json = Json {
@@ -36,7 +36,7 @@ class FilmRepositoryImpl : FilmRepository {
     private val service = retrofit.create(FilmService::class.java)
 
     override suspend fun getFilms(): List<Film> =
-        service.getAllFilms().map { film ->
+        service.getAllFilms().results.map { film ->
             film.toDomain()
         }
 

@@ -8,7 +8,7 @@ data class Character(
     val gender: String,
     val height: String,
     val homeworld: String,
-    val species: String,
+    val species: List<String>,
     val url: String,
 )
 

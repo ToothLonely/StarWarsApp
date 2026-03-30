@@ -1,6 +1,7 @@
 package dev.toothlonely.starwarsapp.data.character
 
 import dev.toothlonely.starwarsapp.domain.character.Character
+import dev.toothlonely.starwarsapp.domain.species.Species
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -12,7 +13,7 @@ data class CharacterDto(
     val gender: String,
     val height: String,
     val homeworld: String,
-    val species: String,
+    val species: List<String>,
     val url: String
 )
 

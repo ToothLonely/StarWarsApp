@@ -12,7 +12,7 @@ import retrofit2.converter.kotlinx.serialization.asConverterFactory
 class SpeciesRepositoryImpl : SpeciesRepository {
 
     companion object {
-        const val BASE_URL = "https://swapi.dev/api"
+        const val BASE_URL = "https://swapi.dev/api/"
     }
 
     private val json = Json {
@@ -36,7 +36,7 @@ class SpeciesRepositoryImpl : SpeciesRepository {
     private val service = retrofit.create(SpeciesService::class.java)
 
     override suspend fun getSpecies(): List<Species> =
-        service.getAllSpecies().map { species ->
+        service.getAllSpecies().results.map { species ->
             species.toDomain()
         }
 

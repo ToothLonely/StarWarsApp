@@ -7,7 +7,7 @@ import retrofit2.http.Url
 interface CharacterService {
 
     @GET("people")
-    suspend fun getAllCharacters(): List<CharacterDto>
+    suspend fun getAllCharacters(): CharacterResponse
 
     @GET("people/")
     suspend fun search(@Query("search") character: String): CharacterDto

@@ -5,7 +5,7 @@ import retrofit2.http.Url
 
 interface FilmService {
     @GET("films")
-    suspend fun getAllFilms(): List<FilmDto>
+    suspend fun getAllFilms(): FilmResponse
 
     @GET
     suspend fun getFilmByUrl(@Url url: String): FilmDto

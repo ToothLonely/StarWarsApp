@@ -5,7 +5,7 @@ import retrofit2.http.Url
 
 interface PlanetService {
     @GET("planets")
-    suspend fun getAllPlanets(): List<PlanetDto>
+    suspend fun getAllPlanets(): PlanetResponse
 
     @GET
     suspend fun getPlanetByUrl(@Url url: String): PlanetDto

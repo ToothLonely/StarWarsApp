@@ -12,7 +12,7 @@ import retrofit2.converter.kotlinx.serialization.asConverterFactory
 class PlanetRepositoryImpl : PlanetRepository {
 
     companion object {
-        const val BASE_URL = "https://swapi.dev/api"
+        const val BASE_URL = "https://swapi.dev/api/"
     }
 
     private val json = Json {
@@ -36,7 +36,7 @@ class PlanetRepositoryImpl : PlanetRepository {
     private val service = retrofit.create(PlanetService::class.java)
 
     override suspend fun getPlanets(): List<Planet> =
-        service.getAllPlanets().map { planet ->
+        service.getAllPlanets().results.map { planet ->
             planet.toDomain()
         }
 

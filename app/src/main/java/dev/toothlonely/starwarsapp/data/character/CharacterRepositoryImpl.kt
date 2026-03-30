@@ -12,7 +12,7 @@ import retrofit2.converter.kotlinx.serialization.asConverterFactory
 class CharacterRepositoryImpl : CharacterRepository {
 
     companion object {
-        const val BASE_URL = "https://swapi.dev/api"
+        const val BASE_URL = "https://swapi.dev/api/"
     }
 
     private val json = Json {
@@ -36,7 +36,7 @@ class CharacterRepositoryImpl : CharacterRepository {
     private val service = retrofit.create(CharacterService::class.java)
 
     override suspend fun getCharacters(): List<Character> =
-        service.getAllCharacters().map { character ->
+        service.getAllCharacters().results.map { character ->
             character.toDomain()
         }
 
