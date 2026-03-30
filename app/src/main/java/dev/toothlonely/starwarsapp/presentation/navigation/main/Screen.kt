@@ -1,4 +1,4 @@
-package dev.toothlonely.starwarsapp.presentation.navigation
+package dev.toothlonely.starwarsapp.presentation.navigation.main
 
 import kotlinx.serialization.Serializable
 

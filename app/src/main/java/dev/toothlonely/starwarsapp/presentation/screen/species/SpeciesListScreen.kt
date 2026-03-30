@@ -1,4 +1,4 @@
-package dev.toothlonely.starwarsapp.presentation
+package dev.toothlonely.starwarsapp.presentation.screen.species
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.padding
@@ -11,25 +11,26 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import dev.toothlonely.starwarsapp.data.STUB
-import dev.toothlonely.starwarsapp.presentation.navigation.Screen
+import dev.toothlonely.starwarsapp.presentation.component.Item
+import dev.toothlonely.starwarsapp.presentation.navigation.main.Screen
 
 @Composable
-fun PlanetsListScreen(navigateTo: (Screen) -> Unit) {
+fun SpeciesListScreen(navigateTo: (Screen) -> Unit) {
 
-    val listOfPlanets = STUB.getPlanets()
+    val listOfSpecies = STUB.getSpecies()
 
     LazyColumn {
-        itemsIndexed(listOfPlanets) { index, item ->
+        itemsIndexed(listOfSpecies) { index, item ->
             with(item) {
                 val firstLine = name
-                val secondLine = "Population: $population, 1 day is $rotationPeriod hours"
-                val thirdLine = "Climate: $climate, terrain: $terrain, gravity: ${gravity}G"
+                val secondLine = "$classification from $homeworld"
+                val thirdLine = "Talking on $language"
                 Item(firstLine, secondLine, thirdLine, Modifier.clickable {
-                    navigateTo(Screen.Planet(name = name))
+                    navigateTo(Screen.Species(name = name))
                 })
             }
 
-            if (index < listOfPlanets.size) {
+            if (index < listOfSpecies.size) {
                 HorizontalDivider(
                     thickness = 1.dp,
                     color = Color.LightGray,
@@ -43,5 +44,5 @@ fun PlanetsListScreen(navigateTo: (Screen) -> Unit) {
 @Composable
 @Preview(showBackground = true)
 private fun Preview() {
-    PlanetsListScreen {}
+    SpeciesListScreen {}
 }

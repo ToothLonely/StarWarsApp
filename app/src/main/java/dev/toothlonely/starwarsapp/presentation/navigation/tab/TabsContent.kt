@@ -1,14 +1,15 @@
-package dev.toothlonely.starwarsapp.presentation.navigation
+package dev.toothlonely.starwarsapp.presentation.navigation.tab
 
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
-import dev.toothlonely.starwarsapp.presentation.CharactersListScreen
-import dev.toothlonely.starwarsapp.presentation.FilmsListScreen
-import dev.toothlonely.starwarsapp.presentation.PlanetsListScreen
-import dev.toothlonely.starwarsapp.presentation.SpeciesListScreen
+import dev.toothlonely.starwarsapp.presentation.screen.character.CharactersListScreen
+import dev.toothlonely.starwarsapp.presentation.screen.film.FilmsListScreen
+import dev.toothlonely.starwarsapp.presentation.screen.planet.PlanetsListScreen
+import dev.toothlonely.starwarsapp.presentation.screen.species.SpeciesListScreen
+import dev.toothlonely.starwarsapp.presentation.navigation.main.Screen
 
 @Composable
 fun TabsContent(

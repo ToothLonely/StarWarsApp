@@ -1,4 +1,4 @@
-package dev.toothlonely.starwarsapp.presentation
+package dev.toothlonely.starwarsapp.presentation.component
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.text.KeyboardOptions

@@ -1,4 +1,4 @@
-package dev.toothlonely.starwarsapp.presentation
+package dev.toothlonely.starwarsapp.presentation.screen.species
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -8,11 +8,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 
 @Composable
-fun PlanetScreen() {
+fun SpeciesScreen() {
     Box(
         contentAlignment = Alignment.Center,
         modifier = Modifier.fillMaxSize()
     ) {
-        Text(text = "PlanetScreen")
+        Text(text = "SpeciesScreen")
     }
 }

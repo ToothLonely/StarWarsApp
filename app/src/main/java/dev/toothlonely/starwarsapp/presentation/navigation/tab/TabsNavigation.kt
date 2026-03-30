@@ -1,4 +1,4 @@
-package dev.toothlonely.starwarsapp.presentation.navigation
+package dev.toothlonely.starwarsapp.presentation.navigation.tab
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.pager.PagerState

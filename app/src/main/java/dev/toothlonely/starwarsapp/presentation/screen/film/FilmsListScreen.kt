@@ -1,4 +1,4 @@
-package dev.toothlonely.starwarsapp.presentation
+package dev.toothlonely.starwarsapp.presentation.screen.film
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.padding
@@ -11,7 +11,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import dev.toothlonely.starwarsapp.data.STUB
-import dev.toothlonely.starwarsapp.presentation.navigation.Screen
+import dev.toothlonely.starwarsapp.presentation.component.Item
+import dev.toothlonely.starwarsapp.presentation.navigation.main.Screen
 
 @Composable
 fun FilmsListScreen(navigateTo: (Screen) -> Unit) {

@@ -1,4 +1,4 @@
-package dev.toothlonely.starwarsapp.presentation
+package dev.toothlonely.starwarsapp.presentation.screen.planet
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.padding
@@ -11,25 +11,26 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import dev.toothlonely.starwarsapp.data.STUB
-import dev.toothlonely.starwarsapp.presentation.navigation.Screen
+import dev.toothlonely.starwarsapp.presentation.component.Item
+import dev.toothlonely.starwarsapp.presentation.navigation.main.Screen
 
 @Composable
-fun CharactersListScreen(navigateTo: (Screen) -> Unit) {
+fun PlanetsListScreen(navigateTo: (Screen) -> Unit) {
 
-    val listOfCharacters = STUB.getCharacters()
+    val listOfPlanets = STUB.getPlanets()
 
     LazyColumn {
-        itemsIndexed(listOfCharacters) { index, item ->
+        itemsIndexed(listOfPlanets) { index, item ->
             with(item) {
                 val firstLine = name
-                val secondLine = "$species, $gender,  $height cm"
-                val thirdLine = homeworld
-                Item(firstLine, secondLine, thirdLine, modifier = Modifier.clickable {
-                    navigateTo(Screen.Character(name = name))
+                val secondLine = "Population: $population, 1 day is $rotationPeriod hours"
+                val thirdLine = "Climate: $climate, terrain: $terrain, gravity: ${gravity}G"
+                Item(firstLine, secondLine, thirdLine, Modifier.clickable {
+                    navigateTo(Screen.Planet(name = name))
                 })
             }
 
-            if (index < listOfCharacters.size) {
+            if (index < listOfPlanets.size) {
                 HorizontalDivider(
                     thickness = 1.dp,
                     color = Color.LightGray,
@@ -43,5 +44,5 @@ fun CharactersListScreen(navigateTo: (Screen) -> Unit) {
 @Composable
 @Preview(showBackground = true)
 private fun Preview() {
-    CharactersListScreen {}
+    PlanetsListScreen {}
 }

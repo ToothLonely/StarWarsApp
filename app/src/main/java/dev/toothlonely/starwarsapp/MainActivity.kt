@@ -9,7 +9,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
-import dev.toothlonely.starwarsapp.presentation.navigation.MainNavigation
+import dev.toothlonely.starwarsapp.presentation.navigation.main.MainNavigation
 import dev.toothlonely.starwarsapp.ui.theme.StarWarsAppTheme
 
 class MainActivity : ComponentActivity() {
