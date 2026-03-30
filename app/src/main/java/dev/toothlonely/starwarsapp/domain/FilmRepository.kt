@@ -1,5 +1,7 @@
 package dev.toothlonely.starwarsapp.domain
 
-interface FilmsRepository {
+interface FilmRepository {
     suspend fun getFilms(): List<Film>
+
+    suspend fun getFilm(url: String): Film
 }
