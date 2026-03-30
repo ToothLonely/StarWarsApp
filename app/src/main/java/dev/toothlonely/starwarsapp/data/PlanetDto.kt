@@ -9,6 +9,7 @@ data class PlanetDto(
     val climate: String,
     val terrain: String,
     val rotationPeriod: String,
+    val url: String,
 )
 
 fun PlanetDto.toDomain() = Planet(
@@ -18,4 +19,5 @@ fun PlanetDto.toDomain() = Planet(
     climate = this.climate,
     terrain = this.terrain,
     rotationPeriod = this.rotationPeriod,
+    url = this.url,
 )

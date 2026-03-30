@@ -7,11 +7,13 @@ data class SpeciesDto(
     val classification: String,
     val language: String,
     val homeworld: String,
+    val url: String,
 )
 
 fun SpeciesDto.toDomain() = Species(
     name = this.name,
     classification = this.classification,
     language = this.language,
-    homeworld = this.homeworld
+    homeworld = this.homeworld,
+    url = this.url
 )

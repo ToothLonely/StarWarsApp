@@ -5,4 +5,5 @@ data class Species(
     val classification: String,
     val language: String,
     val homeworld: String,
+    val url: String,
 )

@@ -11,6 +11,7 @@ data class FilmDto(
     val director: String,
     val producer: String,
     val episodeId: Int,
+    val url: String,
 )
 
 fun FilmDto.toDomain() = Film(
@@ -19,5 +20,6 @@ fun FilmDto.toDomain() = Film(
     openingCrawl = this.openingCrawl,
     director = this.director,
     producer = this.producer,
-    episodeId = this.episodeId
+    episodeId = this.episodeId,
+    url = this.url,
 )

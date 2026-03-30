@@ -9,6 +9,7 @@ data class Character(
     val height: String,
     val homeworld: String,
     val species: String,
+    val url: String,
 )
 
 fun Character.toDto() = CharacterDto(
@@ -17,5 +18,6 @@ fun Character.toDto() = CharacterDto(
     gender = this.gender,
     height = this.height,
     homeworld = this.homeworld,
-    species = this.species
+    species = this.species,
+    url = this.url
 )

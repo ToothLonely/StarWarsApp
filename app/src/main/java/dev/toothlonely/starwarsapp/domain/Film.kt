@@ -7,4 +7,5 @@ data class Film(
     val director: String,
     val producer: String,
     val episodeId: Int,
+    val url: String,
 )

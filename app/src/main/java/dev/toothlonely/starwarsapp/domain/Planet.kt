@@ -7,4 +7,5 @@ data class Planet(
     val climate: String,
     val terrain: String,
     val rotationPeriod: String,
+    val url: String,
 )

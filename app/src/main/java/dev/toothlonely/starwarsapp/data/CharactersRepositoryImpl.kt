@@ -33,7 +33,7 @@ class CharactersRepositoryImpl : CharactersRepository {
         .addConverterFactory(json.asConverterFactory("application/json".toMediaType()))
         .build()
 
-    private val service = retrofit.create(CharactersService::class.java)
+    private val service = retrofit.create(CharacterService::class.java)
 
     override suspend fun getAllCharacters(): List<Character> =
         service.getAllCharacters().map { character ->
