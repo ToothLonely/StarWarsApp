@@ -6,12 +6,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import dev.toothlonely.starwarsapp.presentation.navigation.Screen
 import dev.toothlonely.starwarsapp.presentation.navigation.Tab
 import dev.toothlonely.starwarsapp.presentation.navigation.TabsContent
 import dev.toothlonely.starwarsapp.presentation.navigation.TabsNavigation
 
 @Composable
-fun MainScreen(modifier: Modifier = Modifier) {
+fun MainScreen(modifier: Modifier = Modifier, navigateTo: (Screen) -> Unit) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = modifier
@@ -26,12 +27,12 @@ fun MainScreen(modifier: Modifier = Modifier) {
 
         SearchString()
         TabsNavigation(pager = pagerState, tabs = tabs)
-        TabsContent(pagerState = pagerState, tabs = tabs)
+        TabsContent(pagerState = pagerState, tabs = tabs, navigateTo = navigateTo)
     }
 }
 
 @Composable
 @Preview(showBackground = true)
 private fun MainScreenPreview() {
-    MainScreen()
+    MainScreen {}
 }

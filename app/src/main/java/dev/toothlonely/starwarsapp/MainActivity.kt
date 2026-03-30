@@ -8,7 +8,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
-import dev.toothlonely.starwarsapp.presentation.MainScreen
+import androidx.navigation.compose.rememberNavController
+import dev.toothlonely.starwarsapp.presentation.navigation.MainNavigation
 import dev.toothlonely.starwarsapp.ui.theme.StarWarsAppTheme
 
 class MainActivity : ComponentActivity() {
@@ -18,7 +19,11 @@ class MainActivity : ComponentActivity() {
         setContent {
             StarWarsAppTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    MainScreen(modifier = Modifier.padding(innerPadding))
+                    val navController = rememberNavController()
+                    MainNavigation(
+                        navController = navController,
+                        modifier = Modifier.padding(innerPadding)
+                    )
                 }
             }
         }
