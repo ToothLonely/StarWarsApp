@@ -14,13 +14,14 @@ import dev.toothlonely.starwarsapp.presentation.SpeciesListScreen
 fun TabsContent(
     pagerState: PagerState,
     tabs: List<Tab>,
+    navigateTo: (Screen) -> Unit
 ) {
     HorizontalPager(state = pagerState) { page ->
         when (tabs[page]) {
-            is Tab.CharactersList -> CharactersListScreen()
-            is Tab.FilmsList -> FilmsListScreen()
-            is Tab.PlanetsList -> PlanetsListScreen()
-            is Tab.SpeciesList -> SpeciesListScreen()
+            is Tab.CharactersList -> CharactersListScreen(navigateTo)
+            is Tab.FilmsList -> FilmsListScreen(navigateTo)
+            is Tab.PlanetsList -> PlanetsListScreen(navigateTo)
+            is Tab.SpeciesList -> SpeciesListScreen(navigateTo)
         }
     }
 }
@@ -36,5 +37,5 @@ private fun Preview() {
     )
     val pager = rememberPagerState(pageCount = { tabs.size })
 
-    TabsContent(pager, tabs)
+    TabsContent(pager, tabs) {}
 }

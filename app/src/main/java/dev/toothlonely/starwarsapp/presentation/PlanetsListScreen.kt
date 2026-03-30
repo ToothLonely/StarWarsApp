@@ -1,5 +1,6 @@
 package dev.toothlonely.starwarsapp.presentation
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
@@ -10,9 +11,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import dev.toothlonely.starwarsapp.data.STUB
+import dev.toothlonely.starwarsapp.presentation.navigation.Screen
 
 @Composable
-fun PlanetsListScreen() {
+fun PlanetsListScreen(navigateTo: (Screen) -> Unit) {
 
     val listOfPlanets = STUB.getPlanets()
 
@@ -22,7 +24,9 @@ fun PlanetsListScreen() {
                 val firstLine = name
                 val secondLine = "Population: $population, 1 day is $rotationPeriod hours"
                 val thirdLine = "Climate: $climate, terrain: $terrain, gravity: ${gravity}G"
-                Item(firstLine, secondLine, thirdLine)
+                Item(firstLine, secondLine, thirdLine, Modifier.clickable {
+                    navigateTo(Screen.Planet(name = name))
+                })
             }
 
             if (index < listOfPlanets.size) {
@@ -39,5 +43,5 @@ fun PlanetsListScreen() {
 @Composable
 @Preview(showBackground = true)
 private fun Preview() {
-    PlanetsListScreen()
+    PlanetsListScreen {}
 }

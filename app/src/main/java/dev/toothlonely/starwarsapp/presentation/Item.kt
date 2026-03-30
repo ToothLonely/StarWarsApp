@@ -16,7 +16,12 @@ import androidx.compose.ui.unit.sp
 import dev.toothlonely.starwarsapp.domain.Character
 
 @Composable
-fun Item(firstLine: String, secondLine: String? = null, thirdLine: String? = null) {
+fun Item(
+    firstLine: String,
+    secondLine: String? = null,
+    thirdLine: String? = null,
+    modifier: Modifier = Modifier
+) {
 
     val firstLineTextStyle = TextStyle(
         color = Color.Black,
@@ -34,7 +39,7 @@ fun Item(firstLine: String, secondLine: String? = null, thirdLine: String? = nul
 
     Column(
         verticalArrangement = Arrangement.spacedBy(8.dp),
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .padding(10.dp)
     ) {
