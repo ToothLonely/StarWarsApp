@@ -62,7 +62,8 @@ private fun ItemPreview() {
         gender = "male",
         height = "200",
         homeworld = "Tatooine",
-        species = "Wookie"
+        species = listOf("Wookie"),
+        url = ""
     )
     with(character) {
         Item(

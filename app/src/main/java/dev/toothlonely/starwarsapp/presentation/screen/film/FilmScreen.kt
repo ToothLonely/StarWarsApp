@@ -10,8 +10,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
-import dev.toothlonely.starwarsapp.presentation.screen.character.CharactersListState
-import dev.toothlonely.starwarsapp.presentation.screen.character.CharactersListViewModel
 
 @Composable
 fun FilmScreen() {

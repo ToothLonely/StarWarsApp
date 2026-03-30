@@ -7,7 +7,6 @@ import androidx.lifecycle.viewModelScope
 import androidx.navigation.toRoute
 import dev.toothlonely.starwarsapp.data.planet.PlanetRepositoryImpl
 import dev.toothlonely.starwarsapp.presentation.navigation.main.Screen
-import dev.toothlonely.starwarsapp.presentation.screen.film.FilmState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow

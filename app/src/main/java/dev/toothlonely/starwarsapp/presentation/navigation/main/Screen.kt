@@ -8,14 +8,14 @@ sealed interface Screen {
     data object Main : Screen
 
     @Serializable
-    data class Character(val name: String) : Screen
+    data class Character(val url: String) : Screen
 
     @Serializable
-    data class Film(val name: String) : Screen
+    data class Film(val url: String) : Screen
 
     @Serializable
-    data class Planet(val name: String) : Screen
+    data class Planet(val url: String) : Screen
 
     @Serializable
-    data class Species(val name: String) : Screen
+    data class Species(val url: String) : Screen
 }

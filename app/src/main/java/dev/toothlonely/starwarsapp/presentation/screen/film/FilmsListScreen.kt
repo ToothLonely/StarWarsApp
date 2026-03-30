@@ -20,7 +20,6 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import dev.toothlonely.starwarsapp.presentation.component.Item
 import dev.toothlonely.starwarsapp.presentation.navigation.main.Screen
-import dev.toothlonely.starwarsapp.presentation.screen.character.CharactersListState
 
 @Composable
 fun FilmsListScreen(navigateTo: (Screen) -> Unit) {
