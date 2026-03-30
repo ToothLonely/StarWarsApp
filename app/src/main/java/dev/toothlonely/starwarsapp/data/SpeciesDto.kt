@@ -1,0 +1,17 @@
+package dev.toothlonely.starwarsapp.data
+
+import dev.toothlonely.starwarsapp.domain.Species
+
+data class SpeciesDto(
+    val name: String,
+    val classification: String,
+    val language: String,
+    val homeworld: String,
+)
+
+fun SpeciesDto.toDomain() = Species(
+    name = this.name,
+    classification = this.classification,
+    language = this.language,
+    homeworld = this.homeworld
+)
