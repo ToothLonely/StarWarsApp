@@ -1,4 +1,4 @@
-package dev.toothlonely.starwarsapp.domain
+package dev.toothlonely.starwarsapp.domain.film
 
 data class Film(
     val title: String,

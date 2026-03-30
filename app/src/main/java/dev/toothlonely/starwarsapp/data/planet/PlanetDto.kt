@@ -1,6 +1,6 @@
-package dev.toothlonely.starwarsapp.data
+package dev.toothlonely.starwarsapp.data.planet
 
-import dev.toothlonely.starwarsapp.domain.Planet
+import dev.toothlonely.starwarsapp.domain.planet.Planet
 
 data class PlanetDto(
     val name: String,

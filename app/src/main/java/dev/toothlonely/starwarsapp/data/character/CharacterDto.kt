@@ -1,6 +1,6 @@
-package dev.toothlonely.starwarsapp.data
+package dev.toothlonely.starwarsapp.data.character
 
-import dev.toothlonely.starwarsapp.domain.Character
+import dev.toothlonely.starwarsapp.domain.character.Character
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 

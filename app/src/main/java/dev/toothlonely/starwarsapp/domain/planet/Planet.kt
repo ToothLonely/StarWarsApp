@@ -1,4 +1,4 @@
-package dev.toothlonely.starwarsapp.domain
+package dev.toothlonely.starwarsapp.domain.planet
 
 data class Planet(
     val name: String,

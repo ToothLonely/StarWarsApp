@@ -1,4 +1,4 @@
-package dev.toothlonely.starwarsapp.domain
+package dev.toothlonely.starwarsapp.domain.planet
 
 interface PlanetRepository {
     suspend fun getPlanets(): List<Planet>

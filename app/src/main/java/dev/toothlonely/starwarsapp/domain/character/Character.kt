@@ -1,6 +1,6 @@
-package dev.toothlonely.starwarsapp.domain
+package dev.toothlonely.starwarsapp.domain.character
 
-import dev.toothlonely.starwarsapp.data.CharacterDto
+import dev.toothlonely.starwarsapp.data.character.CharacterDto
 
 data class Character(
     val name: String,

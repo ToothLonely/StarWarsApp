@@ -1,7 +1,7 @@
-package dev.toothlonely.starwarsapp.data
+package dev.toothlonely.starwarsapp.data.planet
 
-import dev.toothlonely.starwarsapp.domain.Film
-import dev.toothlonely.starwarsapp.domain.FilmRepository
+import dev.toothlonely.starwarsapp.domain.planet.Planet
+import dev.toothlonely.starwarsapp.domain.planet.PlanetRepository
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
@@ -9,7 +9,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.kotlinx.serialization.asConverterFactory
 
-class FilmRepositoryImpl : FilmRepository {
+class PlanetRepositoryImpl : PlanetRepository {
 
     companion object {
         const val BASE_URL = "https://swapi.dev/api"
@@ -33,13 +33,13 @@ class FilmRepositoryImpl : FilmRepository {
         .addConverterFactory(json.asConverterFactory("application/json".toMediaType()))
         .build()
 
-    private val service = retrofit.create(FilmService::class.java)
+    private val service = retrofit.create(PlanetService::class.java)
 
-    override suspend fun getFilms(): List<Film> =
-        service.getAllFilms().map { film ->
-            film.toDomain()
+    override suspend fun getPlanets(): List<Planet> =
+        service.getAllPlanets().map { planet ->
+            planet.toDomain()
         }
 
-    override suspend fun getFilm(url: String): Film =
-        service.getFilmByUrl(url).toDomain()
+    override suspend fun getPlanet(url: String): Planet =
+        service.getPlanetByUrl(url).toDomain()
 }

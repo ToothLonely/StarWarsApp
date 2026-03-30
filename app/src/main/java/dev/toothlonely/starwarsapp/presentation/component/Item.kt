@@ -13,7 +13,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import dev.toothlonely.starwarsapp.domain.Character
+import dev.toothlonely.starwarsapp.domain.character.Character
 
 @Composable
 fun Item(

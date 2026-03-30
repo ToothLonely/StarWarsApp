@@ -1,6 +1,6 @@
-package dev.toothlonely.starwarsapp.data
+package dev.toothlonely.starwarsapp.data.species
 
-import dev.toothlonely.starwarsapp.domain.Species
+import dev.toothlonely.starwarsapp.domain.species.Species
 
 data class SpeciesDto(
     val name: String,

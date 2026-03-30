@@ -1,6 +1,6 @@
-package dev.toothlonely.starwarsapp.data
+package dev.toothlonely.starwarsapp.data.film
 
-import dev.toothlonely.starwarsapp.domain.Film
+import dev.toothlonely.starwarsapp.domain.film.Film
 import kotlinx.serialization.Serializable
 
 @Serializable

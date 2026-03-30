@@ -1,4 +1,4 @@
-package dev.toothlonely.starwarsapp.data
+package dev.toothlonely.starwarsapp.data.character
 
 import retrofit2.http.GET
 import retrofit2.http.Query

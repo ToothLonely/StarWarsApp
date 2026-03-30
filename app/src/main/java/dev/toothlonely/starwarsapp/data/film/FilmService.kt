@@ -1,4 +1,4 @@
-package dev.toothlonely.starwarsapp.data
+package dev.toothlonely.starwarsapp.data.film
 
 import retrofit2.http.GET
 import retrofit2.http.Url

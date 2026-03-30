@@ -1,7 +1,7 @@
-package dev.toothlonely.starwarsapp.data
+package dev.toothlonely.starwarsapp.data.species
 
-import dev.toothlonely.starwarsapp.domain.Character
-import dev.toothlonely.starwarsapp.domain.CharacterRepository
+import dev.toothlonely.starwarsapp.domain.species.Species
+import dev.toothlonely.starwarsapp.domain.species.SpeciesRepository
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
@@ -9,7 +9,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.kotlinx.serialization.asConverterFactory
 
-class CharacterRepositoryImpl : CharacterRepository {
+class SpeciesRepositoryImpl : SpeciesRepository {
 
     companion object {
         const val BASE_URL = "https://swapi.dev/api"
@@ -33,16 +33,13 @@ class CharacterRepositoryImpl : CharacterRepository {
         .addConverterFactory(json.asConverterFactory("application/json".toMediaType()))
         .build()
 
-    private val service = retrofit.create(CharacterService::class.java)
+    private val service = retrofit.create(SpeciesService::class.java)
 
-    override suspend fun getCharacters(): List<Character> =
-        service.getAllCharacters().map { character ->
-            character.toDomain()
+    override suspend fun getSpecies(): List<Species> =
+        service.getAllSpecies().map { species ->
+            species.toDomain()
         }
 
-    override suspend fun search(character: String): Character =
-        service.search(character).toDomain()
-
-    override suspend fun getCharacter(url: String): Character =
-        service.getCharacterByUrl(url).toDomain()
+    override suspend fun getSpecies(url: String): Species =
+        service.getSpeciesByUrl(url).toDomain()
 }

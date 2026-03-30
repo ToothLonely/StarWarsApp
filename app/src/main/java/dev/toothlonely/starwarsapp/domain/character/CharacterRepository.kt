@@ -1,4 +1,4 @@
-package dev.toothlonely.starwarsapp.domain
+package dev.toothlonely.starwarsapp.domain.character
 
 interface CharacterRepository {
     suspend fun getCharacters(): List<Character>
