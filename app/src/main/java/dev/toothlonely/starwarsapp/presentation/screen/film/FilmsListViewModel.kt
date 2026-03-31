@@ -20,7 +20,7 @@ class FilmsListViewModel : ViewModel() {
         loadFilms()
     }
 
-    private fun loadFilms() {
+    fun loadFilms() {
         _state.value = FilmsListState.Loading
 
         viewModelScope.launch(Dispatchers.IO) {
