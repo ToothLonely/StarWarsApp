@@ -20,11 +20,10 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import dev.toothlonely.starwarsapp.presentation.component.Item
 import dev.toothlonely.starwarsapp.presentation.navigation.main.Screen
+import dev.toothlonely.starwarsapp.presentation.screen.error.ErrorScreen
 
 @Composable
 fun SpeciesListScreen(navigateTo: (Screen) -> Unit) {
-
-    //val listOfSpecies = STUB.getSpecies()
 
     val viewModel = viewModel<SpeciesListViewModel>()
     val state by viewModel.state.collectAsStateWithLifecycle()
@@ -37,35 +36,15 @@ fun SpeciesListScreen(navigateTo: (Screen) -> Unit) {
         }
 
         is SpeciesListState.Error -> {
-            Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                Text(text = "Ошибка")
+            ErrorScreen {
+                viewModel.loadSpecies()
             }
         }
 
         is SpeciesListState.Success -> {
 
             val listOfSpecies = currentState.species
-
-            LazyColumn {
-                itemsIndexed(listOfSpecies) { index, item ->
-                    with(item) {
-                        val firstLine = name
-                        val secondLine = "$classification from $homeworld"
-                        val thirdLine = "Talking on $language"
-                        Item(firstLine, secondLine, thirdLine, Modifier.clickable {
-                            navigateTo(Screen.Species(url = url))
-                        })
-                    }
-
-                    if (index < listOfSpecies.size) {
-                        HorizontalDivider(
-                            thickness = 1.dp,
-                            color = Color.LightGray,
-                            modifier = Modifier.padding(horizontal = 5.dp)
-                        )
-                    }
-                }
-            }
+            SpeciesListScreenContent(listOfSpecies, navigateTo)
         }
     }
 }
