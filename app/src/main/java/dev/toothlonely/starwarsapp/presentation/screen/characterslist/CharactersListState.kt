@@ -1,4 +1,4 @@
-package dev.toothlonely.starwarsapp.presentation.screen.character
+package dev.toothlonely.starwarsapp.presentation.screen.characterslist
 
 import dev.toothlonely.starwarsapp.domain.character.Character
 

@@ -1,4 +1,4 @@
-package dev.toothlonely.starwarsapp.presentation.screen.planet
+package dev.toothlonely.starwarsapp.presentation.screen.characterslist
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -14,27 +14,27 @@ import dev.toothlonely.starwarsapp.presentation.navigation.main.Screen
 import dev.toothlonely.starwarsapp.presentation.screen.error.ErrorScreen
 
 @Composable
-fun PlanetsListScreen(navigateTo: (Screen) -> Unit) {
+fun CharactersListScreen(navigateTo: (Screen) -> Unit) {
 
-    val viewModel = viewModel<PlanetsListViewModel>()
+    val viewModel = viewModel<CharactersListViewModel>()
     val state by viewModel.state.collectAsStateWithLifecycle()
 
     when (val currentState = state) {
-        is PlanetsListState.Loading -> {
+        is CharactersListState.Loading -> {
             Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
                 CircularProgressIndicator()
             }
         }
 
-        is PlanetsListState.Error -> {
+        is CharactersListState.Error -> {
             ErrorScreen {
-                viewModel.loadPlanets()
+                viewModel.loadCharacters()
             }
         }
 
-        is PlanetsListState.Success -> {
-            val listOfPlanets = currentState.planets
-            PlanetsListScreenContent(listOfPlanets, navigateTo)
+        is CharactersListState.Success -> {
+            val listOfCharacters = currentState.characters
+            CharactersListScreenContent(listOfCharacters, navigateTo)
         }
     }
 }
@@ -42,5 +42,5 @@ fun PlanetsListScreen(navigateTo: (Screen) -> Unit) {
 @Composable
 @Preview(showBackground = true)
 private fun Preview() {
-    PlanetsListScreen {}
+    CharactersListScreen {}
 }

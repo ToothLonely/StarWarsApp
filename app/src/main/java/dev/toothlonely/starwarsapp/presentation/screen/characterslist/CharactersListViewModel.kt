@@ -1,4 +1,4 @@
-package dev.toothlonely.starwarsapp.presentation.screen.character
+package dev.toothlonely.starwarsapp.presentation.screen.characterslist
 
 import android.util.Log
 import androidx.lifecycle.ViewModel

@@ -1,4 +1,4 @@
-package dev.toothlonely.starwarsapp.presentation.screen.film
+package dev.toothlonely.starwarsapp.presentation.screen.specieslist
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.padding
@@ -9,28 +9,24 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import dev.toothlonely.starwarsapp.domain.film.Film
+import dev.toothlonely.starwarsapp.domain.species.Species
 import dev.toothlonely.starwarsapp.presentation.component.Item
 import dev.toothlonely.starwarsapp.presentation.navigation.main.Screen
 
 @Composable
-fun FilmsListScreenContent(listOfFilms: List<Film>, navigateTo: (Screen) -> Unit) {
+fun SpeciesListScreenContent(listOfSpecies: List<Species>, navigateTo: (Screen) -> Unit) {
     LazyColumn {
-        itemsIndexed(listOfFilms) { index, item ->
+        itemsIndexed(listOfSpecies) { index, item ->
             with(item) {
-                val firstLine = title
-                val secondLine =
-                    if (episodeId == -1 && releaseDate == "unknown") null
-                    else if (episodeId == -1) releaseDate
-                    else if (releaseDate == "unknown") "Episode №$episodeId"
-                    else "Episode №$episodeId from $releaseDate"
-                val thirdLine = "$director, $producer"
+                val firstLine = name
+                val secondLine = "$classification from $homeworld"
+                val thirdLine = "Talking on $language"
                 Item(firstLine, secondLine, thirdLine, Modifier.clickable {
-                    navigateTo(Screen.Film(url = url))
+                    navigateTo(Screen.Species(url = url))
                 })
             }
 
-            if (index < listOfFilms.size) {
+            if (index < listOfSpecies.size) {
                 HorizontalDivider(
                     thickness = 1.dp,
                     color = Color.LightGray,

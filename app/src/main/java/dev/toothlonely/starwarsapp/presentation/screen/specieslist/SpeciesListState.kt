@@ -1,4 +1,4 @@
-package dev.toothlonely.starwarsapp.presentation.screen.species
+package dev.toothlonely.starwarsapp.presentation.screen.specieslist
 
 import dev.toothlonely.starwarsapp.domain.species.Species
 

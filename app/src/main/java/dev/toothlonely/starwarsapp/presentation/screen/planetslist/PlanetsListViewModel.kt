@@ -1,4 +1,4 @@
-package dev.toothlonely.starwarsapp.presentation.screen.planet
+package dev.toothlonely.starwarsapp.presentation.screen.planetslist
 
 import android.util.Log
 import androidx.lifecycle.ViewModel

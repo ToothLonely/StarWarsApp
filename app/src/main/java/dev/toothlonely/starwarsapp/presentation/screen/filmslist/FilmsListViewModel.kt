@@ -1,4 +1,4 @@
-package dev.toothlonely.starwarsapp.presentation.screen.film
+package dev.toothlonely.starwarsapp.presentation.screen.filmslist
 
 import android.util.Log
 import androidx.lifecycle.ViewModel

@@ -1,4 +1,4 @@
-package dev.toothlonely.starwarsapp.presentation.screen.planet
+package dev.toothlonely.starwarsapp.presentation.screen.characterslist
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.padding
@@ -9,26 +9,26 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import dev.toothlonely.starwarsapp.domain.planet.Planet
+import dev.toothlonely.starwarsapp.domain.character.Character
 import dev.toothlonely.starwarsapp.presentation.component.Item
 import dev.toothlonely.starwarsapp.presentation.navigation.main.Screen
 
 @Composable
-fun PlanetsListScreenContent(listOfPlanets: List<Planet>, navigateTo: (Screen) -> Unit) {
+fun CharactersListScreenContent(listOfCharacters: List<Character>, navigateTo: (Screen) -> Unit) {
     LazyColumn {
-        itemsIndexed(listOfPlanets) { index, item ->
+        itemsIndexed(listOfCharacters) { index, item ->
             with(item) {
                 val firstLine = name
                 val secondLine =
-                    if (rotationPeriod == "unknown") "Population: $population"
-                    else "Population: $population, 1 day is $rotationPeriod hours"
-                val thirdLine = "Climate: $climate, terrain: $terrain, gravity: ${gravity}G"
-                Item(firstLine, secondLine, thirdLine, Modifier.clickable {
-                    navigateTo(Screen.Planet(url = url))
+                    if (species.isEmpty()) "$gender,  $height cm"
+                    else "$species, $gender,  $height cm"
+                val thirdLine = homeworld
+                Item(firstLine, secondLine, thirdLine, modifier = Modifier.clickable {
+                    navigateTo(Screen.Character(url = url))
                 })
             }
 
-            if (index < listOfPlanets.size) {
+            if (index < listOfCharacters.size) {
                 HorizontalDivider(
                     thickness = 1.dp,
                     color = Color.LightGray,

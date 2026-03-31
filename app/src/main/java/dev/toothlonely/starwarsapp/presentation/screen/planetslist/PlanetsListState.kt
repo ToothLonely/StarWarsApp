@@ -1,4 +1,4 @@
-package dev.toothlonely.starwarsapp.presentation.screen.planet
+package dev.toothlonely.starwarsapp.presentation.screen.planetslist
 
 import dev.toothlonely.starwarsapp.domain.planet.Planet
 

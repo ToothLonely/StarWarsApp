@@ -1,4 +1,4 @@
-package dev.toothlonely.starwarsapp.presentation.screen.film
+package dev.toothlonely.starwarsapp.presentation.screen.specieslist
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -14,27 +14,28 @@ import dev.toothlonely.starwarsapp.presentation.navigation.main.Screen
 import dev.toothlonely.starwarsapp.presentation.screen.error.ErrorScreen
 
 @Composable
-fun FilmsListScreen(navigateTo: (Screen) -> Unit) {
+fun SpeciesListScreen(navigateTo: (Screen) -> Unit) {
 
-    val viewModel = viewModel<FilmsListViewModel>()
+    val viewModel = viewModel<SpeciesListViewModel>()
     val state by viewModel.state.collectAsStateWithLifecycle()
 
     when (val currentState = state) {
-        is FilmsListState.Loading -> {
+        is SpeciesListState.Loading -> {
             Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
                 CircularProgressIndicator()
             }
         }
 
-        is FilmsListState.Error -> {
+        is SpeciesListState.Error -> {
             ErrorScreen {
-                viewModel.loadFilms()
+                viewModel.loadSpecies()
             }
         }
 
-        is FilmsListState.Success -> {
-            val listOfFilms = currentState.films
-            FilmsListScreenContent(listOfFilms, navigateTo)
+        is SpeciesListState.Success -> {
+
+            val listOfSpecies = currentState.species
+            SpeciesListScreenContent(listOfSpecies, navigateTo)
         }
     }
 }
@@ -42,5 +43,5 @@ fun FilmsListScreen(navigateTo: (Screen) -> Unit) {
 @Composable
 @Preview(showBackground = true)
 private fun Preview() {
-    FilmsListScreen {}
+    SpeciesListScreen {}
 }

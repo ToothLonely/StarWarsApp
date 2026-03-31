@@ -1,4 +1,4 @@
-package dev.toothlonely.starwarsapp.presentation.screen.film
+package dev.toothlonely.starwarsapp.presentation.screen.filmslist
 
 import dev.toothlonely.starwarsapp.domain.film.Film
 
