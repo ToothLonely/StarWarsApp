@@ -20,7 +20,7 @@ class PlanetsListViewModel : ViewModel() {
         loadPlanets()
     }
 
-    private fun loadPlanets() {
+    fun loadPlanets() {
         _state.value = PlanetsListState.Loading
 
         viewModelScope.launch(Dispatchers.IO) {
