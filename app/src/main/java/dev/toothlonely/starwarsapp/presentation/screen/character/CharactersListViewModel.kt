@@ -19,7 +19,7 @@ class CharactersListViewModel : ViewModel() {
         loadCharacters()
     }
 
-    private fun loadCharacters() {
+    fun loadCharacters() {
         _state.value = CharactersListState.Loading
 
         viewModelScope.launch(Dispatchers.IO) {
