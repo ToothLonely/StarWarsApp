@@ -26,7 +26,7 @@ class CharacterViewModel(
         loadCharacter()
     }
 
-    private fun loadCharacter() {
+    fun loadCharacter() {
         _state.value = CharacterState.Loading
 
         viewModelScope.launch(Dispatchers.IO) {
