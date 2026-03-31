@@ -8,11 +8,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.TextStyle
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
+import dev.toothlonely.starwarsapp.presentation.component.ErrorScreen
 
 @Composable
-fun SpeciesScreen() {
+fun SpeciesScreen(titleTextStyle: TextStyle) {
 
     val viewModel = viewModel<SpeciesViewModel>()
     val state by viewModel.state.collectAsStateWithLifecycle()
@@ -25,21 +27,15 @@ fun SpeciesScreen() {
         }
 
         is SpeciesState.Error -> {
-            Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                Text(text = "Ошибка")
+            ErrorScreen {
+                viewModel.loadSpecies()
             }
         }
 
         is SpeciesState.Success -> {
 
             val species = currentState.species
-
-            Box(
-                contentAlignment = Alignment.Center,
-                modifier = Modifier.fillMaxSize()
-            ) {
-                Text(text = "SpeciesScreen")
-            }
+            SpeciesScreenContent(species, titleTextStyle)
         }
     }
 }

@@ -26,7 +26,7 @@ class SpeciesViewModel(
         loadSpecies()
     }
 
-    private fun loadSpecies() {
+    fun loadSpecies() {
         _state.value = SpeciesState.Loading
 
         viewModelScope.launch(Dispatchers.IO) {
