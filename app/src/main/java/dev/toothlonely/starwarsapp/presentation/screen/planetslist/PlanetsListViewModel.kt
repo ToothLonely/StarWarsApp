@@ -3,13 +3,16 @@ package dev.toothlonely.starwarsapp.presentation.screen.planetslist
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.toothlonely.starwarsapp.data.planet.PlanetRepositoryImpl
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class PlanetsListViewModel : ViewModel() {
+@HiltViewModel
+class PlanetsListViewModel @Inject constructor(): ViewModel() {
 
     private val _state = MutableStateFlow<PlanetsListState>(PlanetsListState.Loading)
     val state = _state.asStateFlow()

@@ -8,6 +8,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
+import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import dev.toothlonely.starwarsapp.presentation.screen.error.ErrorScreen
@@ -15,7 +16,7 @@ import dev.toothlonely.starwarsapp.presentation.screen.error.ErrorScreen
 @Composable
 fun FilmScreen(titleTextStyle: TextStyle) {
 
-    val viewModel = viewModel<FilmViewModel>()
+    val viewModel = hiltViewModel<FilmViewModel>()
     val state by viewModel.state.collectAsStateWithLifecycle()
 
     when (val currentState = state) {

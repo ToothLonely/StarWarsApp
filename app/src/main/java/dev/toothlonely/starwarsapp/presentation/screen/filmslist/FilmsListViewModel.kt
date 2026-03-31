@@ -3,13 +3,16 @@ package dev.toothlonely.starwarsapp.presentation.screen.filmslist
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.toothlonely.starwarsapp.data.film.FilmRepositoryImpl
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class FilmsListViewModel : ViewModel() {
+@HiltViewModel
+class FilmsListViewModel @Inject constructor(): ViewModel() {
 
     private val _state = MutableStateFlow<FilmsListState>(FilmsListState.Loading)
     val state = _state.asStateFlow()

@@ -8,6 +8,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import dev.toothlonely.starwarsapp.presentation.navigation.main.Screen
@@ -16,7 +17,7 @@ import dev.toothlonely.starwarsapp.presentation.screen.error.ErrorScreen
 @Composable
 fun SpeciesListScreen(navigateTo: (Screen) -> Unit) {
 
-    val viewModel = viewModel<SpeciesListViewModel>()
+    val viewModel = hiltViewModel<SpeciesListViewModel>()
     val state by viewModel.state.collectAsStateWithLifecycle()
 
     when (val currentState = state) {

@@ -3,13 +3,16 @@ package dev.toothlonely.starwarsapp.presentation.screen.specieslist
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.toothlonely.starwarsapp.data.species.SpeciesRepositoryImpl
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class SpeciesListViewModel : ViewModel() {
+@HiltViewModel
+class SpeciesListViewModel @Inject constructor() : ViewModel() {
 
     private val _state = MutableStateFlow<SpeciesListState>(SpeciesListState.Loading)
     val state = _state.asStateFlow()
