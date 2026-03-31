@@ -26,7 +26,7 @@ class PlanetViewModel(
         loadPlanet()
     }
 
-    private fun loadPlanet() {
+    fun loadPlanet() {
         _state.value = PlanetState.Loading
 
         viewModelScope.launch(Dispatchers.IO) {
