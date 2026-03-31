@@ -22,21 +22,23 @@ fun SpeciesScreenContent(species: Species, titleTextStyle: TextStyle) {
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier.fillMaxSize()
     ) {
-        Spacer(modifier = Modifier.height(30.dp))
+        with(species) {
+            Spacer(modifier = Modifier.height(30.dp))
 
-        Text(text = species.name, style = titleTextStyle)
+            Text(text = name, style = titleTextStyle)
 
-        Spacer(modifier = Modifier.height(30.dp))
+            Spacer(modifier = Modifier.height(30.dp))
 
-        Column(
-            horizontalAlignment = Alignment.Start,
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(10.dp)
-        ) {
-            Text(text = "Classification: ${species.classification}")
-            Text(text = "Homeworld: ${species.homeworld}")
-            Text(text = "Language: ${species.language}")
+            Column(
+                horizontalAlignment = Alignment.Start,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(10.dp)
+            ) {
+                Text(text = "Classification: $classification")
+                Text(text = "Homeworld: $homeworld")
+                Text(text = "Language: $language")
+            }
         }
     }
 }

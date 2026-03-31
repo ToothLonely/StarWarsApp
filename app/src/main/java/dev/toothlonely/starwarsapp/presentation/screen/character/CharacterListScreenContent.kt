@@ -19,7 +19,9 @@ fun CharacterListScreenContent(listOfCharacters: List<Character>, navigateTo: (S
         itemsIndexed(listOfCharacters) { index, item ->
             with(item) {
                 val firstLine = name
-                val secondLine = "$species, $gender,  $height cm"
+                val secondLine =
+                    if (species.isEmpty()) "$gender,  $height cm"
+                    else "$species, $gender,  $height cm"
                 val thirdLine = homeworld
                 Item(firstLine, secondLine, thirdLine, modifier = Modifier.clickable {
                     navigateTo(Screen.Character(url = url))

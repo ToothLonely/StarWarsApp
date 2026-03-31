@@ -19,7 +19,9 @@ fun PlanetsListScreenContent(listOfPlanets: List<Planet>, navigateTo: (Screen) -
         itemsIndexed(listOfPlanets) { index, item ->
             with(item) {
                 val firstLine = name
-                val secondLine = "Population: $population, 1 day is $rotationPeriod hours"
+                val secondLine =
+                    if (rotationPeriod == "unknown") "Population: $population"
+                    else "Population: $population, 1 day is $rotationPeriod hours"
                 val thirdLine = "Climate: $climate, terrain: $terrain, gravity: ${gravity}G"
                 Item(firstLine, secondLine, thirdLine, Modifier.clickable {
                     navigateTo(Screen.Planet(url = url))

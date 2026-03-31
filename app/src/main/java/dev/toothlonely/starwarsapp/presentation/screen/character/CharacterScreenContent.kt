@@ -28,21 +28,24 @@ fun CharacterScreenContent(character: Character, titleTextStyle: TextStyle) {
             .fillMaxSize()
             .padding(10.dp)
     ) {
-        Spacer(modifier = Modifier.height(30.dp))
+        with(character) {
+            Spacer(modifier = Modifier.height(30.dp))
 
-        Text(text = character.name, style = titleTextStyle)
+            Text(text = name, style = titleTextStyle)
 
-        Spacer(modifier = Modifier.height(30.dp))
+            Spacer(modifier = Modifier.height(30.dp))
 
-        Column(
-            horizontalAlignment = Alignment.Start,
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Text(text = "Height: ${character.height} cm")
-            Text(text = "Gender: ${character.gender}")
-            Text(text = "Homeworld: ${character.homeworld}")
-            Text(text = "Birth year: ${character.birthYear}")
-            Text(text = "Species: ${character.species}")
+            Column(
+                horizontalAlignment = Alignment.Start,
+                modifier = Modifier.fillMaxWidth()
+            ) {
+
+                Text(text = "Height: $height cm")
+                Text(text = "Gender: $gender")
+                Text(text = "Homeworld: $homeworld")
+                Text(text = "Birth year: $birthYear")
+                if (species.isNotEmpty()) Text(text = "Species: $species")
+            }
         }
     }
 }

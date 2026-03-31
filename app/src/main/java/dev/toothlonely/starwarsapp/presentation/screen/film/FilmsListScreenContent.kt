@@ -19,7 +19,11 @@ fun FilmsListScreenContent(listOfFilms: List<Film>, navigateTo: (Screen) -> Unit
         itemsIndexed(listOfFilms) { index, item ->
             with(item) {
                 val firstLine = title
-                val secondLine = "Episode №$episodeId from $releaseDate"
+                val secondLine =
+                    if (episodeId == -1 && releaseDate == "unknown") null
+                    else if (episodeId == -1) releaseDate
+                    else if (releaseDate == "unknown") "Episode №$episodeId"
+                    else "Episode №$episodeId from $releaseDate"
                 val thirdLine = "$director, $producer"
                 Item(firstLine, secondLine, thirdLine, Modifier.clickable {
                     navigateTo(Screen.Film(url = url))

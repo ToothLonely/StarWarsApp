@@ -24,25 +24,32 @@ fun FilmScreenContent(film: Film, titleTextStyle: TextStyle) {
             .fillMaxSize()
             .padding(10.dp)
     ) {
-        Spacer(modifier = Modifier.height(30.dp))
+        with(film) {
 
-        Text(text = film.title, style = titleTextStyle)
-
-        Spacer(modifier = Modifier.height(30.dp))
-
-        if (film.openingCrawl.lowercase() != "unknown") {
-            Text(text = "Birth year: ${film.openingCrawl}")
             Spacer(modifier = Modifier.height(30.dp))
-        }
 
-        Column(
-            horizontalAlignment = Alignment.Start,
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Text(text = "Episode number: ${film.episodeId}")
-            Text(text = "Release data: ${film.releaseDate}")
-            Text(text = "Producer: ${film.producer}")
-            Text(text = "Director: ${film.director}")
+            Text(text = title, style = titleTextStyle)
+
+            Spacer(modifier = Modifier.height(30.dp))
+
+            if (openingCrawl.lowercase() != "unknown") {
+                Text(text = "Birth year: $openingCrawl")
+                Spacer(modifier = Modifier.height(30.dp))
+            }
+
+            Column(
+                horizontalAlignment = Alignment.Start,
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                if (episodeId == -1) {
+                    Text(text = "Episode number: unknown")
+                } else {
+                    Text(text = "Episode number: $episodeId")
+                }
+                Text(text = "Release data: $releaseDate")
+                Text(text = "Producer: $producer")
+                Text(text = "Director: $director")
+            }
         }
     }
 }

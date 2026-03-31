@@ -20,6 +20,6 @@ fun FilmDto.toDomain() = Film(
     openingCrawl = this.openingCrawl ?: "unknown",
     director = this.director,
     producer = this.producer,
-    episodeId = this.episodeId ?: 0,
+    episodeId = this.episodeId ?: -1,
     url = this.url,
 )

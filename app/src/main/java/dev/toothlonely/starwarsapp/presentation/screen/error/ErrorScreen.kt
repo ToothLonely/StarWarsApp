@@ -8,6 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
 import dev.toothlonely.starwarsapp.R
 import dev.toothlonely.starwarsapp.presentation.component.RefreshButton
 
@@ -18,7 +19,10 @@ fun ErrorScreen(onClick: () -> Unit) {
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier.fillMaxSize()
     ) {
-        Text(text = stringResource(R.string.error_loading_message))
+        Text(
+            text = stringResource(R.string.error_loading_message),
+            textAlign = TextAlign.Center
+        )
         RefreshButton(onClick)
     }
 }

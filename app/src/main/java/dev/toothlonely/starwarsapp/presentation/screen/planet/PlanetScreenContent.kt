@@ -25,22 +25,23 @@ fun PlanetScreenContent(planet: Planet, titleTextStyle: TextStyle) {
             .fillMaxSize()
             .padding(10.dp)
     ) {
-        Spacer(modifier = Modifier.height(30.dp))
+        with(planet) {
+            Spacer(modifier = Modifier.height(30.dp))
 
-        Text(text = planet.name, style = titleTextStyle)
+            Text(text = name, style = titleTextStyle)
 
-        Spacer(modifier = Modifier.height(30.dp))
+            Spacer(modifier = Modifier.height(30.dp))
 
-        Column(
-            horizontalAlignment = Alignment.Start,
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Text(text = "1 day is: ${planet.rotationPeriod} hours")
-            Text(text = "Population: ${planet.population} people")
-            Text(text = "Gravity: ${planet.gravity} G")
-            Text(text = "Terrain: ${planet.terrain}")
-            Text(text = "Climate: ${planet.climate}")
+            Column(
+                horizontalAlignment = Alignment.Start,
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                if (rotationPeriod != "unknown") Text(text = "1 day is: $rotationPeriod hours")
+                Text(text = "Population: $population people")
+                Text(text = "Gravity: $gravity G")
+                Text(text = "Terrain: $terrain")
+                Text(text = "Climate: $climate")
+            }
         }
     }
-
 }

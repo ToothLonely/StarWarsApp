@@ -46,10 +46,10 @@ fun Item(
         Text(text = firstLine, style = firstLineTextStyle)
         if (secondLine != null) {
             Text(text = secondLine, style = secondLineTextStyle)
-        }
+        } else Text(text = "", style = secondLineTextStyle)
         if (thirdLine != null) {
             Text(text = thirdLine, style = thirdLineTextStyle)
-        }
+        } else Text(text = "", style = thirdLineTextStyle)
     }
 }
 
