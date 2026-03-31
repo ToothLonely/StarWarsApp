@@ -7,6 +7,8 @@ import androidx.lifecycle.viewModelScope
 import androidx.navigation.toRoute
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.toothlonely.starwarsapp.data.species.SpeciesRepositoryImpl
+import dev.toothlonely.starwarsapp.domain.planet.PlanetRepository
+import dev.toothlonely.starwarsapp.domain.species.SpeciesRepository
 import dev.toothlonely.starwarsapp.presentation.navigation.main.Screen
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -16,6 +18,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SpeciesViewModel @Inject constructor(
+    private val repository: SpeciesRepository,
     savedStateHandle: SavedStateHandle
 ) : ViewModel() {
 
@@ -23,7 +26,6 @@ class SpeciesViewModel @Inject constructor(
     private val _state = MutableStateFlow<SpeciesState>(SpeciesState.Loading)
     val state = _state.asStateFlow()
 
-    private val repository = SpeciesRepositoryImpl()
 
     init {
         loadSpecies()

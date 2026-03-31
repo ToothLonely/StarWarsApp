@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.toothlonely.starwarsapp.data.film.FilmRepositoryImpl
+import dev.toothlonely.starwarsapp.domain.film.FilmRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -12,12 +13,12 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class FilmsListViewModel @Inject constructor(): ViewModel() {
+class FilmsListViewModel @Inject constructor(
+    private val repository: FilmRepository,
+): ViewModel() {
 
     private val _state = MutableStateFlow<FilmsListState>(FilmsListState.Loading)
     val state = _state.asStateFlow()
-
-    private val repository = FilmRepositoryImpl()
 
     init {
         loadFilms()

@@ -7,6 +7,8 @@ import androidx.lifecycle.viewModelScope
 import androidx.navigation.toRoute
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.toothlonely.starwarsapp.data.film.FilmRepositoryImpl
+import dev.toothlonely.starwarsapp.domain.character.CharacterRepository
+import dev.toothlonely.starwarsapp.domain.film.FilmRepository
 import dev.toothlonely.starwarsapp.presentation.navigation.main.Screen
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -16,14 +18,13 @@ import javax.inject.Inject
 
 @HiltViewModel
 class FilmViewModel @Inject constructor(
+    private val repository: FilmRepository,
     savedStateHandle: SavedStateHandle
 ) : ViewModel() {
 
     private val filmUrl = savedStateHandle.toRoute<Screen.Film>().url
     private val _state = MutableStateFlow<FilmState>(FilmState.Loading)
     val state = _state.asStateFlow()
-
-    private val repository = FilmRepositoryImpl()
 
     init {
         loadFilm()

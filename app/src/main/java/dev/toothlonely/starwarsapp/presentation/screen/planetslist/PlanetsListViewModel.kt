@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.toothlonely.starwarsapp.data.planet.PlanetRepositoryImpl
+import dev.toothlonely.starwarsapp.domain.planet.PlanetRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -12,12 +13,13 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class PlanetsListViewModel @Inject constructor(): ViewModel() {
+class PlanetsListViewModel @Inject constructor(
+    private val repository: PlanetRepository,
+): ViewModel() {
 
     private val _state = MutableStateFlow<PlanetsListState>(PlanetsListState.Loading)
     val state = _state.asStateFlow()
 
-    private val repository = PlanetRepositoryImpl()
 
     init {
         loadPlanets()

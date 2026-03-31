@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.toothlonely.starwarsapp.data.character.CharacterRepositoryImpl
+import dev.toothlonely.starwarsapp.domain.character.CharacterRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -12,11 +13,11 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class CharactersListViewModel @Inject constructor() : ViewModel() {
+class CharactersListViewModel @Inject constructor(
+    private val repository: CharacterRepository
+) : ViewModel() {
     private val _state = MutableStateFlow<CharactersListState>(CharactersListState.Loading)
     val state = _state.asStateFlow()
-
-    private val repository = CharacterRepositoryImpl()
 
     init {
         loadCharacters()
