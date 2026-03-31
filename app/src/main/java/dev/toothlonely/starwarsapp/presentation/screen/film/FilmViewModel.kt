@@ -26,7 +26,7 @@ class FilmViewModel(
         loadFilm()
     }
 
-    private fun loadFilm() {
+    fun loadFilm() {
         _state.value = FilmState.Loading
 
         viewModelScope.launch(Dispatchers.IO) {
