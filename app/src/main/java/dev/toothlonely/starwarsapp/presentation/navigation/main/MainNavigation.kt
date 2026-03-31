@@ -2,6 +2,9 @@ package dev.toothlonely.starwarsapp.presentation.navigation.main
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -16,6 +19,12 @@ fun MainNavigation(
     navController: NavHostController,
     modifier: Modifier = Modifier
 ) {
+
+    val titleTextStyle = TextStyle(
+        fontSize = 20.sp,
+        fontWeight = FontWeight.Bold
+    )
+
     NavHost(
         navController = navController,
         startDestination = Screen.Main,
@@ -27,16 +36,16 @@ fun MainNavigation(
             }
         }
         composable<Screen.Character> {
-            CharacterScreen()
+            CharacterScreen(titleTextStyle)
         }
         composable<Screen.Film> {
-            FilmScreen()
+            FilmScreen(titleTextStyle)
         }
         composable<Screen.Planet> {
-            PlanetScreen()
+            PlanetScreen(titleTextStyle)
         }
         composable<Screen.Species> {
-            SpeciesScreen()
+            SpeciesScreen(titleTextStyle)
         }
     }
 }

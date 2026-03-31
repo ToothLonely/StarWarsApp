@@ -1,4 +1,4 @@
-package dev.toothlonely.starwarsapp.presentation.component
+package dev.toothlonely.starwarsapp.presentation.screen.error
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -9,6 +9,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import dev.toothlonely.starwarsapp.R
+import dev.toothlonely.starwarsapp.presentation.component.RefreshButton
 
 @Composable
 fun ErrorScreen(onClick: () -> Unit) {
