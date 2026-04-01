@@ -6,13 +6,18 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.toRoute
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dev.toothlonely.starwarsapp.data.film.FilmRepositoryImpl
-import dev.toothlonely.starwarsapp.domain.character.CharacterRepository
 import dev.toothlonely.starwarsapp.domain.film.FilmRepository
 import dev.toothlonely.starwarsapp.presentation.navigation.main.Screen
+import dev.toothlonely.starwarsapp.presentation.screen.character.CharacterEvent
+import dev.toothlonely.starwarsapp.presentation.screen.character.CharacterState
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.channels.Channel
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharedFlow
+import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -26,6 +31,9 @@ class FilmViewModel @Inject constructor(
     private val _state = MutableStateFlow<FilmState>(FilmState.Loading)
     val state = _state.asStateFlow()
 
+    private val _event = Channel<FilmEvent>()
+    val event = _event.receiveAsFlow()
+
     init {
         loadFilm()
     }
@@ -35,11 +43,17 @@ class FilmViewModel @Inject constructor(
 
         viewModelScope.launch(Dispatchers.IO) {
             runCatching {
-                val film = repository.getFilm(filmUrl)
+                val film = repository.getFilmFromApi(filmUrl)
                 _state.value = FilmState.Success(film)
             }.onFailure { error ->
                 Log.e("!!!", "${error.message}")
-                _state.value = FilmState.Error
+                val film = repository.getFilmFromCache(filmUrl)
+                if (film == null) {
+                    _state.value = FilmState.Error
+                } else {
+                    _event.send(FilmEvent.ShowToastBadConnection)
+                    _state.value = FilmState.Success(film)
+                }
             }
         }
     }
