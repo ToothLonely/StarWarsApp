@@ -36,7 +36,6 @@ fun SpeciesScreenContent(species: Species, titleTextStyle: TextStyle) {
                     .padding(10.dp)
             ) {
                 Text(text = "Classification: $classification")
-                Text(text = "Homeworld: $homeworld")
                 Text(text = "Language: $language")
             }
         }

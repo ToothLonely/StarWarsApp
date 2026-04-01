@@ -4,4 +4,5 @@
     <string name="error_loading_message">Не удалось загрузить данные.\nПопробуйте снова.</string>
     <string name="refresh">Обновить</string>
     <string name="data_from_cache">Ошибка соединения. Данные взяты из кэша</string>
+    <string name="error_search_message">Нет такого персонажа</string>
 </resources>

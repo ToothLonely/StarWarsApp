@@ -42,9 +42,7 @@ fun CharacterScreenContent(character: Character, titleTextStyle: TextStyle) {
 
                 Text(text = "Height: $height cm")
                 Text(text = "Gender: $gender")
-                Text(text = "Homeworld: $homeworld")
                 Text(text = "Birth year: $birthYear")
-                if (species.isNotEmpty()) Text(text = "Species: $species")
             }
         }
     }

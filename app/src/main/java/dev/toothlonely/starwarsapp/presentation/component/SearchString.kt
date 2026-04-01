@@ -1,6 +1,7 @@
 package dev.toothlonely.starwarsapp.presentation.component
 
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
@@ -14,11 +15,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import dev.toothlonely.starwarsapp.R
 
 @Composable
-fun SearchString() {
+fun SearchString(query: String, onQueryChanged: (String) -> Unit, search: () -> Unit) {
 
     OutlinedTextField(
-        value = "",
-        onValueChange = {},
+        value = query,
+        onValueChange = onQueryChanged,
         leadingIcon = {
             Icon(
                 painter = painterResource(R.drawable.search_icon),
@@ -31,6 +32,11 @@ fun SearchString() {
         keyboardOptions = KeyboardOptions(
             imeAction = ImeAction.Search
         ),
+        keyboardActions = KeyboardActions(
+            onSearch = {
+                search()
+            }
+        ),
         modifier = Modifier
             .fillMaxWidth()
     )
@@ -39,5 +45,5 @@ fun SearchString() {
 @Composable
 @Preview(showBackground = true)
 private fun SearchStringPreview() {
-    SearchString()
+    SearchString("", {}, {})
 }

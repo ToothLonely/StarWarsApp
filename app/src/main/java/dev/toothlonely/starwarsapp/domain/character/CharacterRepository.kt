@@ -9,4 +9,6 @@ interface CharacterRepository {
     suspend fun getCharacterFromCache(url: String): Character?
 
     suspend fun upsertNewCharactersInCache(characters: List<Character>)
+
+    suspend fun search(name: String): Character
 }

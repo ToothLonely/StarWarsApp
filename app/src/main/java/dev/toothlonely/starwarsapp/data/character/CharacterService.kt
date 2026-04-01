@@ -10,7 +10,7 @@ interface CharacterService {
     suspend fun getAllCharacters(): CharacterResponse
 
     @GET("people/")
-    suspend fun search(@Query("search") character: String): CharacterDto
+    suspend fun search(@Query("search") character: String): CharacterResponse
 
     @GET
     suspend fun getCharacterByUrl(@Url url: String): CharacterDto

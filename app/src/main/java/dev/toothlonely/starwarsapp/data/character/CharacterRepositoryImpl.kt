@@ -34,5 +34,9 @@ class CharacterRepositoryImpl @Inject constructor(
         dao.upsertNewCharacters(entities)
     }
 
+    override suspend fun search(name: String): Character {
+        return service.search(name).results[0].toDomain()
+    }
+
 
 }

@@ -19,7 +19,7 @@ fun SpeciesListScreenContent(listOfSpecies: List<Species>, navigateTo: (Screen) 
         itemsIndexed(listOfSpecies) { index, item ->
             with(item) {
                 val firstLine = name
-                val secondLine = "$classification from $homeworld"
+                val secondLine = classification
                 val thirdLine = "Talking on $language"
                 Item(firstLine, secondLine, thirdLine, Modifier.clickable {
                     navigateTo(Screen.Species(url = url))
