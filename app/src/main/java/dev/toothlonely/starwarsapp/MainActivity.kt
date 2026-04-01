@@ -11,7 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
 import dev.toothlonely.starwarsapp.presentation.navigation.main.MainNavigation
-import dev.toothlonely.starwarsapp.ui.theme.StarWarsAppTheme
+import dev.toothlonely.starwarsapp.presentation.ui.theme.StarWarsAppTheme
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {

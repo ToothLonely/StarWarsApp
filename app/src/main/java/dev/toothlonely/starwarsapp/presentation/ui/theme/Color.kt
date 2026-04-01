@@ -1,4 +1,4 @@
-package dev.toothlonely.starwarsapp.ui.theme
+package dev.toothlonely.starwarsapp.presentation.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
