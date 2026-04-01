@@ -1,6 +1,6 @@
 package dev.toothlonely.starwarsapp.domain.character
 
-import dev.toothlonely.starwarsapp.data.character.CharacterDto
+import dev.toothlonely.starwarsapp.data.character.CharacterEntity
 
 data class Character(
     val name: String,
@@ -12,12 +12,12 @@ data class Character(
     val url: String,
 )
 
-fun Character.toDto() = CharacterDto(
+
+fun Character.toEntity() = CharacterEntity(
     name = this.name,
     birthYear = this.birthYear,
     gender = this.gender,
     height = this.height,
     homeworld = this.homeworld,
-    species = this.species,
     url = this.url
 )

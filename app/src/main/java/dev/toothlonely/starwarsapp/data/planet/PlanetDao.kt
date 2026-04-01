@@ -12,7 +12,7 @@ interface PlanetDao {
             SELECT * FROM planet
         """
     )
-    suspend fun getPlanets(): List<PlanetEntity>
+    suspend fun getPlanets(): List<PlanetEntity>?
 
     @Upsert
     suspend fun upsertNewPlanets(planets: List<PlanetEntity>)
@@ -20,9 +20,9 @@ interface PlanetDao {
     @Query(
         """
             SELECT * FROM planet
-            WHERE name = :name
+            WHERE url = :url
         """
     )
-    suspend fun getPlanet(name: String): PlanetEntity
+    suspend fun getPlanet(url: String): PlanetEntity?
 
 }

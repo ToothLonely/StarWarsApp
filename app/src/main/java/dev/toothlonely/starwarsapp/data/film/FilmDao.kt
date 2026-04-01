@@ -12,7 +12,7 @@ interface FilmDao {
             SELECT * FROM film
         """
     )
-    suspend fun getFilms(): List<FilmEntity>
+    suspend fun getFilms(): List<FilmEntity>?
 
     @Upsert
     suspend fun upsertNewFilms(films: List<FilmEntity>)
@@ -20,9 +20,9 @@ interface FilmDao {
     @Query(
         """
             SELECT * FROM film
-            WHERE title = :title
+            WHERE url = :url
         """
     )
-    suspend fun getFilm(title: String): FilmEntity
+    suspend fun getFilm(url: String): FilmEntity?
 
 }

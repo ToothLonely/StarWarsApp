@@ -11,7 +11,7 @@ interface CharacterDao {
             SELECT * FROM character
         """
     )
-    suspend fun getCharacters(): List<CharacterEntity>
+    suspend fun getCharacters(): List<CharacterEntity>?
 
     @Upsert
     suspend fun upsertNewCharacters(characters: List<CharacterEntity>)
@@ -19,8 +19,8 @@ interface CharacterDao {
     @Query(
         """
             SELECT * FROM character
-            WHERE name = :name
+            WHERE url = :url
         """
     )
-    suspend fun getCharacter(name: String): CharacterEntity
+    suspend fun getCharacter(url: String): CharacterEntity?
 }

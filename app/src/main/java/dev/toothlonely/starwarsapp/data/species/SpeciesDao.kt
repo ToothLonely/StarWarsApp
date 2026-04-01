@@ -12,7 +12,7 @@ interface SpeciesDao {
             SELECT * FROM species
         """
     )
-    suspend fun getSpecies(): List<SpeciesEntity>
+    suspend fun getSpecies(): List<SpeciesEntity>?
 
     @Upsert
     suspend fun upsertNewSpecies(species: List<SpeciesEntity>)
@@ -20,9 +20,9 @@ interface SpeciesDao {
     @Query(
         """
             SELECT * FROM species
-            WHERE name = :name
+            WHERE url = :url
         """
     )
-    suspend fun getSpecies(name: String): SpeciesEntity
+    suspend fun getSpecies(url: String): SpeciesEntity?
 
 }
