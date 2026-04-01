@@ -72,7 +72,7 @@ class ProvidesModule {
         context,
         AppDatabase::class.java,
         "database.db"
-    )
+    ).build()
 
     @Provides
     fun provideCharacterDao(db: AppDatabase) = db.getCharacterDao()
