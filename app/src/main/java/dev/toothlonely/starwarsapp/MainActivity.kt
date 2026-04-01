@@ -13,7 +13,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import dev.toothlonely.starwarsapp.presentation.navigation.main.MainNavigation
 import dev.toothlonely.starwarsapp.ui.theme.StarWarsAppTheme
 
-@AndroidEntryPoint
+@AndroidEntryPointd
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -1,9 +1,14 @@
 package dev.toothlonely.starwarsapp.di
 
+import android.content.Context
+import androidx.activity.contextaware.ContextAware
+import androidx.room.Room
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import dev.toothlonely.starwarsapp.data.AppDatabase
 import dev.toothlonely.starwarsapp.data.BASE_URL
 import dev.toothlonely.starwarsapp.data.character.CharacterService
 import dev.toothlonely.starwarsapp.data.film.FilmService
@@ -60,4 +65,24 @@ class ProvidesModule {
     @Provides
     @Singleton
     fun provideSpeciesService(retrofit: Retrofit) = retrofit.create(SpeciesService::class.java)
+
+    @Provides
+    @Singleton
+    fun provideDatabase(@ApplicationContext context: Context) = Room.databaseBuilder(
+        context,
+        AppDatabase::class.java,
+        "database.db"
+    )
+
+    @Provides
+    fun provideCharacterDao(db: AppDatabase) = db.getCharacterDao()
+
+    @Provides
+    fun provideFilmDao(db: AppDatabase) = db.getFilmDao()
+
+    @Provides
+    fun providePlanetDao(db: AppDatabase) = db.getPlanetDao()
+
+    @Provides
+    fun provideSpeciesDao(db: AppDatabase) = db.getSpeciesDao()
 }
